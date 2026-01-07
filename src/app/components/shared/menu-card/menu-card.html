@@ -1,0 +1,33 @@
+<div class="menu-card">
+  <div class="card-image">
+    <img [src]="dish.imageUrl" [alt]="dish.name" class="dish-image">
+    <div class="card-badges">
+      <span class="badge category">{{ dish.category }}</span>
+      <span *ngIf="dish.isVegetarian" class="badge vegetarian">🌱 Veg</span>
+      <span *ngIf="dish.isSpicy" class="badge spicy">🌶️ Spicy</span>
+    </div>
+  </div>
+
+  <div class="card-content">
+    <div class="card-header">
+      <h3 class="dish-name">{{ dish.name }}</h3>
+      <span class="dish-price">${{ dish.price.toFixed(2) }}</span>
+    </div>
+
+    <p class="dish-description">{{ dish.description }}</p>
+
+    <div class="dish-info">
+      <span class="info-item">⭐ {{ dish.rating }}</span>
+      <span class="info-item">⏱️ {{ dish.preparationTime }} min</span>
+    </div>
+
+    <div class="card-actions">
+      <button class="btn-details" [routerLink]="['/dish', dish.id]">
+        View Details
+      </button>
+      <button class="btn-add" (click)="addToCart()">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>

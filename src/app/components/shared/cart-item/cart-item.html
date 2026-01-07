@@ -1,0 +1,45 @@
+<div class="cart-item">
+  <div class="item-image">
+    <img [src]="item.dish.imageUrl" [alt]="item.dish.name">
+  </div>
+
+  <div class="item-details">
+    <div class="item-header">
+      <h3 class="item-name">{{ item.dish.name }}</h3>
+      <button class="btn-remove" (click)="removeItem.emit()">✕</button>
+    </div>
+
+    <p class="item-description">{{ item.dish.description }}</p>
+
+    <div class="item-tags">
+      <span *ngIf="item.dish.isVegetarian" class="tag vegetarian">🌱 Veg</span>
+      <span *ngIf="item.dish.isSpicy" class="tag spicy">🌶️ Spicy</span>
+    </div>
+
+    <div class="item-special" *ngIf="item.specialInstructions">
+      <strong>Special Instructions:</strong> {{ item.specialInstructions }}
+    </div>
+  </div>
+
+  <div class="item-controls">
+    <div class="quantity-controls">
+      <button
+        class="btn-quantity"
+        (click)="decreaseQuantity()"
+        [disabled]="item.quantity <= 1">
+        -
+      </button>
+      <span class="quantity">{{ item.quantity }}</span>
+      <button
+        class="btn-quantity"
+        (click)="increaseQuantity()">
+        +
+      </button>
+    </div>
+
+    <div class="item-price">
+      <span class="price">${{ (item.dish.price * item.quantity).toFixed(2) }}</span>
+      <span class="unit-price">${{ item.dish.price.toFixed(2) }} each</span>
+    </div>
+  </div>
+</div>

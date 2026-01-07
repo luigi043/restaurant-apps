@@ -3,22 +3,15 @@
   "version": 1,
   "cli": {
     "packageManager": "npm",
-    "analytics": "04733ef8-5dad-430d-a51c-b33fae6db1a4"
+    "analytics": "2a1773a7-6234-4dd5-aa3b-973f1e4678d1"
   },
   "newProjectRoot": "projects",
   "projects": {
-    "restaurant-apps": {
+    "restaurant-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss",
-          "standalone": false
-        },
-        "@schematics/angular:directive": {
-          "standalone": false
-        },
-        "@schematics/angular:pipe": {
-          "standalone": false
+          "style": "scss"
         }
       },
       "root": "",
@@ -74,10 +67,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "restaurant-apps:build:production"
+              "buildTarget": "restaurant-app:build:production"
             },
             "development": {
-              "buildTarget": "restaurant-apps:build:development"
+              "buildTarget": "restaurant-app:build:development"
             }
           },
           "defaultConfiguration": "development"
